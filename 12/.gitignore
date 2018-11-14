@@ -1,0 +1,9 @@
+.stack-work
+.hspec-failures
+*.tix
+.DS_Store
+*.cabal
+dist
+report.html
+weeder.txt
+hpc-threshold.txt

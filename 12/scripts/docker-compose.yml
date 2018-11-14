@@ -1,0 +1,39 @@
+version: "3.3"
+services:
+  hauth:
+    image: eckyputrady/hauth:latest
+    environment:
+      - PORT=3000
+      - PG_URL=postgresql://hauth:hauthpass@postgres:5432/hauth
+      - MQ_URL=amqp://hauth:hauthpass@rabbitmq:5672/%2F
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - postgres
+      - redis
+      - rabbitmq
+    ports:
+      - "80:3000"
+
+  postgres:
+    image: postgres:9.6
+    environment:
+      - POSTGRES_PASSWORD=hauthpass
+      - POSTGRES_USER=hauth
+      - POSTGRES_DB=hauth
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:4
+    ports:
+      - "6379:6379"
+    
+  rabbitmq:
+    image: rabbitmq:3-management
+    hostname: rabbitmq
+    ports:
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=hauth
+      - RABBITMQ_DEFAULT_PASS=hauthpass
+  

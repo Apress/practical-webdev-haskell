@@ -1,0 +1,26 @@
+[ Threshold 
+    { thresholdName = "Expressions used"
+    , thresholdRegex = "(\\d+)% expressions used"
+    , thresholdValue = 45.0
+    }
+, Threshold 
+    { thresholdName = "Boolean coverage"
+    , thresholdRegex = "(\\d+)% boolean coverage"
+    , thresholdValue = 15.0
+    }
+, Threshold 
+    { thresholdName = "Alternatives used"
+    , thresholdRegex = "(\\d+)% alternatives used"
+    , thresholdValue = 45.0
+    }
+, Threshold 
+    { thresholdName = "Local declarations used"
+    , thresholdRegex = "(\\d+)% local declarations used"
+    , thresholdValue = 65.0
+    }
+, Threshold 
+    { thresholdName = "Top-level declarations used"
+    , thresholdRegex = "(\\d+)% top-level declarations used"
+    , thresholdValue = 45.0
+    }
+]

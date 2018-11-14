@@ -1,0 +1,72 @@
+name: hauth
+version: '0.1.0.0'
+category: Web
+author: Ecky Putrady
+maintainer: eckyp@example.com
+copyright: 2017 Ecky Putrady
+license: BSD3
+github: githubuser/hauth
+extra-source-files:
+- README.md
+
+dependencies:
+- base
+- classy-prelude
+- pcre-heavy
+- time-lens
+- time
+- aeson
+- mtl
+- string-random
+- data-has
+- katip
+- postgresql-simple
+- postgresql-simple-migration
+- resource-pool
+- hedis
+- amqp
+- http-types
+- scotty
+- cookie
+- wai
+- wai-extra
+- blaze-builder
+- digestive-functors
+- digestive-functors-aeson
+- blaze-html
+- digestive-functors-blaze
+- digestive-functors-scotty
+- wai-middleware-static
+- warp
+
+default-extensions:
+- NoImplicitPrelude
+- OverloadedStrings
+- QuasiQuotes
+- GeneralizedNewtypeDeriving
+- ConstraintKinds
+- FlexibleContexts
+- TemplateHaskell
+
+library:
+  source-dirs: src
+executables:
+  hauth-exe:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - hauth
+tests:
+  hauth-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - hauth
